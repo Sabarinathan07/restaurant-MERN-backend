@@ -1,6 +1,7 @@
 import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectID
 let restaurants
+const RESTREVIEWS_NS = "sample_restaurants";
 
 export default class RestaurantsDAO {
   static async injectDB(conn) {
@@ -8,7 +9,7 @@ export default class RestaurantsDAO {
       return
     }
     try {
-      restaurants = await conn.db(process.env.RESTREVIEWS_NS).collection("restaurants")
+      restaurants = await conn.db(RESTREVIEWS_NS).collection("restaurants")
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in restaurantsDAO: ${e}`,
