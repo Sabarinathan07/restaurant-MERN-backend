@@ -7,11 +7,12 @@ dotenv.config()
 const MongoClient = mongodb.MongoClient
 
 const port = process.env.PORT || 5000
+DB_URI="mongodb+srv://sabari-db:sabarinathan@mern-stack.x175l.mongodb.net/sample_restaurants?retryWrites=true&w=majority"
 console.log("Hello");
 
 
 MongoClient.connect(
-  process.env.RESTREVIEWS_DB_URI,
+  DB_URI,
   {
     poolSize: 50,
     wtimeout: 2500,
